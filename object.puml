@@ -1,0 +1,32 @@
+@startuml
+object "Person" as p {
+    Id:UUID
+    Name:String
+    Age:Int
+}
+
+object "Item" as i {
+    Id:UUID
+    Name:String
+    Description:String
+}
+
+/' 벨류 타입 '/
+object "Transaction" as t {
+    amount:int
+    from:UUID
+    to:UUID
+    createdAt:Time
+}
+
+object "Customer" as c {
+    person:Person
+'    <color:#red>products:[]Item
+    products:[]Item
+    transaction:Transaction
+}
+
+p "1" -up- "1" c
+i "1" -right- "*" c
+
+@enduml
